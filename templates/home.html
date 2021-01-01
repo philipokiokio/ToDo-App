@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} TODO APP {% endblock %}
+
+
+{% block content %}
+<h1>ToDo App</h1>
+<p>
+    Welcome to Todo App built by Philip, Using Django.
+    sign up on Todo App <a  class="btn btn-primary" href="{% url 'signup' %}">Here.</a> Or <a class="btn btn-success" href="{% url 'login' %}" class="">
+        Login
+    </a>  
+</p>
+
+{% endblock %}

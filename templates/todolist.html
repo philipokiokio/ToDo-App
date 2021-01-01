@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+Task to be done.
+{% endblock %}
+
+{% block content %}
+<h1>ToDo Tasks for {{ user.username }}</h1>
+<p>Add new tasks <a class="btn btn-primary" href="{% url 'new' %}">New</a></p>
+{% for post in object_list %}
+<div class="card">
+    <div class="card-header">
+    <h2><a href="#">{{ post.title }}</a> </h2>
+    <span class="text-muted"><h5>created on: {{ post.created }}</h5>
+    </span>
+</div>
+<div class="card-body">
+    <p>{{ post.body }} | Task Update: {{ post.completed }}.</p>
+    <p> Task deadline: {{ post.due_date }}.</p>
+</div>
+<div class="card-footer text-center text-muted">
+    <p> <a class="btn btn-success" href="{% url 'update' post.pk %}">completed / Edit</a> | <a class="btn btn-danger" href="{% url 'delete' post.pk %}">Delete</a> </p> 
+
+</div>
+</div>
+{% endfor %}
+
+{% endblock %}
